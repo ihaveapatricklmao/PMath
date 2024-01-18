@@ -96,6 +96,33 @@ namespace PATMath
   }
 
 
+  // cross products
+  
+  Vector2i Vec2i_CrossProduct(Vector2i vec_a, Vector2i vec_b) {
+    return Vector2i(int (vec_a.y * vec_b.x - vec_a.x * vec_b.y ), int (vec_a.x * vec_b.y - vec_a.y * vec_b.x));
+  }
+  
+  Vector3i Vec3i_CrossProduct(Vector3i vec_a, Vector3i vec_b) {
+    return Vector3i(int (vec_a.y * vec_b.z - vec_a.z * vec_b.y), int (vec_a.z * vec_b.x - vec_a.x * vec_b.z), int (vec_a.x * vec_b.y - vec_a.y * vec_b.x));
+  }
+
+  Vector4i Vec4i_CrossProduct(Vector4i vec_a, Vector4i vec_b) {
+    return Vector4i(int (vec_a.z * vec_b.i - vec_a.i * vec_b.z), int (vec_a.i * vec_b.x - vec_a.x * vec_b.i), int (vec_a.x * vec_b.y - vec_a.y * vec_a.x), int (vec_a.y * vec_b.z - vec_a.z * vec_a.y));
+  }
+
+  // cross products for doubles
+  Vector2d Vec2d_CrossProduct(Vector2d vec_a, Vector2d vec_b) {
+    return Vector2d(int (vec_a.y * vec_b.x - vec_a.x * vec_b.y ), int (vec_a.x * vec_b.y - vec_a.y * vec_b.x));
+  }
+  
+  Vector3d Vec3d_CrossProduct(Vector3d vec_a, Vector3d vec_b) {
+    return Vector3d(int (vec_a.y * vec_b.z - vec_a.z * vec_b.y), int (vec_a.z * vec_b.x - vec_a.x * vec_b.z), int (vec_a.x * vec_b.y - vec_a.y * vec_b.x));
+  }
+
+  Vector4d Vec4d_CrossProduct(Vector4d vec_a, Vector4d vec_b) {
+    return Vector4d(int (vec_a.z * vec_b.i - vec_a.i * vec_b.z), int (vec_a.i * vec_b.x - vec_a.x * vec_b.i), int (vec_a.x * vec_b.y - vec_a.y * vec_a.x), int (vec_a.y * vec_b.z - vec_a.z * vec_a.y));
+  }
+
   // custom power function
   double Power(int pow, int nth) {
 
