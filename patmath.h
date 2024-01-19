@@ -65,11 +65,11 @@ namespace PATMath
 
 
   // fibonacci sequence
-  int Fibonacci(int nth) {
-    int _return = 0;
-    int x = 0;
-    int upper = 1;
-    int lower = 0;
+  uint32_t Fibonacci(int nth) {
+    uint32_t _return = 0;
+    uint32_t x = 0;
+    uint32_t upper = 1;
+    uint32_t lower = 0;
 
 
     while (x != nth - 2) {
@@ -88,8 +88,8 @@ namespace PATMath
   // factorial calculator
   uint64_t Factorial(int nth) {
     uint64_t ans = 1;
-    int factors = nth;
-    int factor_arr[factors];
+    uint64_t factors = nth;
+    uint64_t factor_arr[factors];
     
     for (int x = 0; x != factors; x++) {
       factor_arr[x] = factors - x;
