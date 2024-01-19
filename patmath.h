@@ -11,9 +11,10 @@ namespace PATMath
   
   template<typename T, size_t N>
 
+
   struct Vector {
     T components[N];
-      
+    
     Vector<T, N> operator*(const T& s) const {
       Vector<T, N> result;
 
@@ -33,11 +34,22 @@ namespace PATMath
       
       return result;
     }
+
+    friend std::ostream& operator<<(std::ostream& os, const Vector<T, N>& vec) {
+      os << "( ";
+      for (size_t i = 0; i < N - 1; ++i) {
+        os << vec.components[i] << " , ";
+      }
+      os << vec.components[N - 1] << " ) ";
+      return os;
+    }
   };
   
 
+  template<typename TYPE>
+
   // custom power function
-  double Power(int pow, int nth) {
+  TYPE Power(TYPE pow, int nth) {
 
     double _return;
     const int pow_storage = pow;
@@ -48,7 +60,7 @@ namespace PATMath
     }
 
     return _return;
-
+    
   }
 
 
