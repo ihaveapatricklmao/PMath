@@ -23,11 +23,18 @@ namespace PATMath
       
       return result;
     }
+
+    T operator*(const Vector<T, N>& other) const {
+      T result = 0;
+      
+      for (size_t i = 0; i < N; ++i) {
+        result += components[i] * other.components[i];
+      }
+      
+      return result;
+    }
   };
   
-
-  // dot products for vectors
-
 
   // custom power function
   double Power(int pow, int nth) {
