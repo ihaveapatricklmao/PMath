@@ -15,6 +15,7 @@ namespace PATMath
   struct Vector {
     T components[N];
     
+    // scalar
     Vector<T, N> operator*(const T& s) const {
       Vector<T, N> result;
 
@@ -24,8 +25,9 @@ namespace PATMath
       
       return result;
     }
-
-    T operator*(const Vector<T, N>& other) const {
+    
+    // dot product operator
+    T operator+(const Vector<T, N>& other) const {
       T result = 0;
       
       for (size_t i = 0; i < N; ++i) {
@@ -34,9 +36,21 @@ namespace PATMath
       
       return result;
     }
+    
+    // cross product
+    T operator*(const Vector<T, N>& other) const {
+      Vector<T, N> result;
+
+      for (size_t i = 0; i < N - 1; ++i) {
+        result.components[i] = components[N - i + 1] * other.components[N - i] - components[N - i] * other.components[N - i + 1];
+        
+      }
+
+      return result;
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const Vector<T, N>& vec) {
-      os << "( ";
+      os << " ( ";
       for (size_t i = 0; i < N - 1; ++i) {
         os << vec.components[i] << " , ";
       }
@@ -51,15 +65,13 @@ namespace PATMath
   // custom power function
   TYPE Power(TYPE pow, int nth) {
 
-    double _return;
-    const int pow_storage = pow;
+    const TYPE pow_storage = pow;
 
     for (int i = 1; i != nth; i++) {
       pow *= pow_storage;
-      _return = pow;
     }
 
-    return _return;
+    return pow;
     
   }
 
@@ -81,7 +93,7 @@ namespace PATMath
     }
 
     return _return;
-
+  
   }
 
 
