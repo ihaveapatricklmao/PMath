@@ -15,7 +15,7 @@ namespace PATMath
   struct Vector {
     T components[N];
     
-    // scalar
+    // scalar operation on a whole vector
     Vector<T, N> operator*=(const T& s) const {
       Vector<T, N> result;
 
@@ -91,8 +91,7 @@ namespace PATMath
       x++;
     }
 
-    return _return;
-  
+    return _return; 
   }
 
 
@@ -110,8 +109,7 @@ namespace PATMath
       ans *= factor_arr[y];
     }
     
-    return ans;
-    
+    return ans; 
   }
 
 };
