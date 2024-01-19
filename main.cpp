@@ -6,18 +6,15 @@ int main() {
   PATMath::Vector<int, 3> vec3_a = {3, 2, 4};
   PATMath::Vector<int, 3> vec3_b = {2, 4, 1};
 
-  int dotProductResult = vec3_a + vec3_b;
+  PATMath::Vector<int, 3> inner_cross_product = {0, 0, 0};
+  PATMath::Vector<int, 3> outer_cross_product = {0, 0, 0};
+  int final_dot_product;
 
-  std::cout << dotProductResult << "\n";
+  inner_cross_product = vec3_a * vec3_b;
 
-  std::cout << vec3_a << "\n";
- 
-  vec3_a = vec3_a * 4;
+  outer_cross_product = vec3_a * inner_cross_product;
 
-  std::cout << vec3_a << "\n";
-  
-  int test = PATMath::Power(2, 4);
+  final_dot_product = vec3_a + outer_cross_product;
 
-  std::cout << test << "\n";
   return -1;
 }

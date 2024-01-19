@@ -16,7 +16,7 @@ namespace PATMath
     T components[N];
     
     // scalar
-    Vector<T, N> operator*(const T& s) const {
+    Vector<T, N> operator*=(const T& s) const {
       Vector<T, N> result;
 
       for (size_t i = 0; i < N; ++i) {
@@ -38,16 +38,15 @@ namespace PATMath
     }
     
     // cross product
-    T operator*(const Vector<T, N>& other) const {
+    Vector<T, N> operator*(const Vector<T, N>& other) const {
       Vector<T, N> result;
 
-      for (size_t i = 0; i < N - 1; ++i) {
-        result.components[i] = components[N - i + 1] * other.components[N - i] - components[N - i] * other.components[N - i + 1];
-        
+      for (size_t i = 0; i < N; ++i) {
+        result.components[i] = components[(i + 1) % N] * other.components[(i + 2) % N] - components[(i + 2) % N] * other.components[(i + 1) % N];
       }
 
       return result;
-    }
+    } 
 
     friend std::ostream& operator<<(std::ostream& os, const Vector<T, N>& vec) {
       os << " ( ";
