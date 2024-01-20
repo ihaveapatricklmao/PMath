@@ -28,7 +28,7 @@ namespace PATMath
     
     // dot product operator
     T operator+(const Vector<T, N>& other) const {
-      T result = 0;
+      T result;
       
       for (size_t i = 0; i < N; ++i) {
         result += components[i] * other.components[i];
@@ -37,7 +37,7 @@ namespace PATMath
       return result;
     }
     
-    // cross product
+    // cross product operator
     Vector<T, N> operator*(const Vector<T, N>& other) const {
       Vector<T, N> result;
 
